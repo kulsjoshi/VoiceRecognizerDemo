@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
      * Showing google speech input dialog
      */
     private void promptSpeechInput() {
+
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
@@ -59,10 +60,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
                 getString(R.string.speech_prompt));
 
-//        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-//        // put a message on the modal dialog
-//        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "speak now");
-//        // if there is more then 1.5s of silence, consider the speech over
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, 3000);
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, 3000);
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, 10000);
@@ -78,24 +75,6 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.speech_not_supported),
                     Toast.LENGTH_SHORT).show();
         }
-
-//        var voiceIntent = new Intent(RecognizerIntent.ActionRecognizeSpeech);
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraLanguageModel, RecognizerIntent.LanguageModelFreeForm);
-//        // put a message on the modal dialog
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraPrompt, "speak now");
-//        // if there is more then 1.5s of silence, consider the speech over
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraSpeechInputCompleteSilenceLengthMillis, 3000);
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraSpeechInputPossiblyCompleteSilenceLengthMillis, 3000);
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraSpeechInputMinimumLengthMillis, 10000);
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraMaxResults, 1);
-//        voiceIntent.PutExtra("android.speech.extra.GET_AUDIO_FORMAT", "audio/AMR");
-//        voiceIntent.PutExtra("android.speech.extra.GET_AUDIO", true);
-//        // you can specify other languages recognised here, for example
-//        // voiceIntent.PutExtra(RecognizerIntent.ExtraLanguage, Java.Util.Locale.German);
-//        // if you wish it to recognise the default Locale language and German
-//        // if you do use another locale, regional dialects may not be recognised very well
-//        voiceIntent.PutExtra(RecognizerIntent.ExtraLanguage, Java.Util.Locale.Default);
-//        activity.StartActivityForResult(voiceIntent, VOICE);
 
     }
 
@@ -138,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         try {
 
             File sdCard = Environment.getExternalStorageDirectory();
-            File dir = new File (sdCard.getAbsolutePath() + "/abc1");
+            File dir = new File(sdCard.getAbsolutePath() + "/abc1");
             dir.mkdirs();
 
             File file = new File(dir, "cacheFileAppeal.wav");
